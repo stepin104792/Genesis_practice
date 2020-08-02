@@ -12,7 +12,10 @@ jobs:
       - name: Install cppcheck
         run: sudo apt-get -y install cppcheck
       - name: Cppcheck code
-        run: cppcheck MiniProject_C/3_Implementation/
+        run: |
+          mkdir MiniProject_C/3_Implementation/build_actions
+          touch result/cppcheck.txt  
+          cppcheck MiniProject_C/3_Implementation > MiniProject_C/3_Implementation/build_actions/cppcheck.txt
       - name: Download results
         uses: actions/upload-artifact@v2
         with:
