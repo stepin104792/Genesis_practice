@@ -7,6 +7,13 @@ on:
     branches: [ master ]
 
 jobs:
+  pre-install:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: apt install cunit
+    - run: apt install cunit
   build:
 
     runs-on: ubuntu-latest
