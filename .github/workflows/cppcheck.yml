@@ -13,8 +13,3 @@ jobs:
         run: sudo apt-get -y install cppcheck
       - name: Cppcheck code
         run: cppcheck MiniProject_C/3_Implementation 
-      - name: Download results
-        uses: actions/upload-artifact@v2
-        with:
-          name: cppcheck results
-          path: MiniProject_C/3_Implementation/build_actions/cppcheck_result.txt
