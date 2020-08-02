@@ -1,0 +1,22 @@
+language: c
+
+compiler:
+  - gcc
+before_install:
+  - echo "Reached before install Section - cunit packages install"
+  - sudo apt-get update
+  - sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev 
+  - sudo apt-get -y install valgrind
+  - sudo apt-get -y install cppcheck
+install:
+  - echo  "Reached Install Section"
+
+script:
+  - pwd
+  - echo "Reached Script Section - Multi File Compile "
+  - make all
+  - make test
+  
+  - echo "Reached Script Section - Valgrid Analysis"
+  # Make sure no scanf statements are in test main. Otherwise the build will wait for inputs
+  - valgrind ./build/Test_Calculator
