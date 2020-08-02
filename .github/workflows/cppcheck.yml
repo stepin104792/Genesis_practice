@@ -14,8 +14,8 @@ jobs:
       - name: Cppcheck code
         run: |
           mkdir MiniProject_C/3_Implementation/build_actions
-          touch result/cppcheck.txt  
-          cppcheck MiniProject_C/3_Implementation > MiniProject_C/3_Implementation/build_actions/cppcheck.txt
+          touch result_cppcheck.txt
+          cppcheck MiniProject_C/3_Implementation > MiniProject_C/3_Implementation/build_actions/result_cppcheck.txt
       - name: Download results
         uses: actions/upload-artifact@v2
         with:
