@@ -5,7 +5,7 @@ PROJECT_NAME = Calculator
 BUILD = build
 
 # All source code files
-SRC = calculator.c\
+SRC = project_main.c\
 src/calculator_operations.c\
 
 # All test source files

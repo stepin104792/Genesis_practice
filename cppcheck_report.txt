@@ -1,2 +1,0 @@
-[calculator.c:40]: (warning) %d in format string (no. 1) requires 'int *' but the argument type is 'unsigned int *'.
-(information) Cppcheck cannot find all the include files (use --check-config for details)

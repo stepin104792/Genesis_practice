@@ -8,7 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: cppcheck
-        uses: deep5050/cppcheck-action@master
+      - name: Install cppcheck
+        run: sudo apt-get -y insatll cppcheck
+      - name: Cppcheck code
+        run: cppcheck MiniProject_C/3_Implementation/
+      
+      - name: Download cppcheck results
+      - shell: bash
+        run: |
+          result="MiniProject_C/3_Implementation/build_actions"
+          mkdir ${result}
+          cppcheck MiniProject_C/3_Implementation/ > $(result)/cppcheck.txt
+        uses: actions/download-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
+          name: homework
+          path: MiniProject_C/3_Implementation/build_actions/cppcheck.txt
