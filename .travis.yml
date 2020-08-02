@@ -19,4 +19,4 @@ script:
   
   - echo "Reached Script Section - Valgrid Analysis"
   # Make sure no scanf statements are in test main. Otherwise the build will wait for inputs
-  - valgrind ./build/Test_Calculator
+  - valgrind ./build/Test_Calculator.out
