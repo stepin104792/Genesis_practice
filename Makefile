@@ -8,16 +8,19 @@ BUILD = build
 SRC = calculator.c\
 src/calculator_operations.c\
 
+# All test source files
 TEST_SRC = src/calculator_operations.c\
 test/test_calculator_operations.c
+
 TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
+
 # All include folders with header files
-INC	= inc
+INC	= -Iinc
 
 PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
+
 # Document files
-DOCUMENTION_FILE = doc/Doxyfile
-DOCUMENTATION_OUTPUT = doc/html
+DOCUMENTATION_OUTPUT = documentation/html
 
 # Default target built
 $(PROJECT_NAME):all
@@ -26,7 +29,7 @@ $(PROJECT_NAME):all
 .PHONY: run clean test  doc all
 
 all: $(SRC) $(BUILD)
-	gcc $(SRC) -I$(INC) -o $(PROJECT_OUTPUT).out
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
 
 # Call `make run` to run the application
 run:$(PROJECT_NAME)
@@ -34,12 +37,13 @@ run:$(PROJECT_NAME)
 
 # Document the code using Doxygen
 doc:
-	doxygen ./doc/Doxyfile
+	make -C ./documentation
 
 # Build and run the unit tests
 test:$(BUILD)
-	gcc $(TEST_SRC) -I$(INC) -o $(TEST_OUTPUT) -lcunit
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -lcunit
 	./$(TEST_OUTPUT)
+
 # Remove all the built files, invoke by `make clean`
 clean:
 	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
