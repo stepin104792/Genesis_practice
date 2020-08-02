@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: apt install cunit
-     run: apt install cunit
+      run: apt install cunit
   build:
 
     runs-on: ubuntu-latest
